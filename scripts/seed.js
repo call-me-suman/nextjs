@@ -161,8 +161,8 @@ async function seedRevenue(client) {
 }
 
 async function main() {
-  const client = await db.connect();
-
+  console.log(process.env.POSTGRES_URL,"*******")
+  const client = await db.connect(process.env.POSTGRES_URL);
   await seedUsers(client);
   await seedCustomers(client);
   await seedInvoices(client);
